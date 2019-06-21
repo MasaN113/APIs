@@ -19,7 +19,7 @@ def findARestaurant(mealType,location):
 	url = ('https://api.foursquare.com/v2/venues/search?client_id=%s&client_secret=%s&v=20130815&ll=%s,%s&query=%s' % (foursquare_client_id, foursquare_client_secret,latitude,longitude,mealType))
 	h = httplib2.Http()
 	result = json.loads(h.request(url,'GET')[1])
-	
+	if __name__ == '__main__':
 	if result['response']['venues']:
 		#3.  Grab the first restaurant
 		restaurant = result['response']['venues'][0]
@@ -35,7 +35,7 @@ def findARestaurant(mealType,location):
 		result = json.loads(h.request(url, 'GET')[1])
 		#5.  Grab the first image
 		if result['response']['photos']['items']:
-			firstpic = result['response']['photos']['items'][0]
+			firstpic = result['response']['phoif __name__ == '__main__':tos']['items'][0]
 			prefix = firstpic['prefix']
 			suffix = firstpic['suffix']
 			imageURL = prefix + "300x300" + suffix
